@@ -1,1 +1,1 @@
-# rust_samples
+# 学习Rust语言过程中编写的例子。
