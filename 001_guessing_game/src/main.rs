@@ -5,8 +5,11 @@ use std::cmp::Ordering;
 fn main() {
     println!("猜数字游戏");
     println!("游戏说明：系统会随机生成一个1~100之间的整数，如果猜对了就获取胜利");
+
+    //声明一个不可变变量，用来存放随机生成的目标数字
     let target:u32 = rand::thread_rng().gen_range(1..101);
 
+    //声明一个可变变量，用来接收用户的输入
     let mut str_number = String::new();
 
     loop {
