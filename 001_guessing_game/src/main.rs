@@ -1,6 +1,6 @@
 use rand::Rng;
-use std::io;
 use std::cmp::Ordering;
+use std::io;
 
 fn main() {
     println!("猜数字游戏");
@@ -14,25 +14,34 @@ fn main() {
 
     loop {
         println!("请输入一个数字：");
-        io::stdin().read_line(&mut str_number).expect("读取数字异常");
+        io::stdin() //获取标准输入流
+            .read_line(&mut str_number) //从标准输入读取一行数据，并将其存入到str_number
+            .expect("读取数字异常");
 
+        //使用match来返回一个有效值，
+        //注：continue或return会跳出当前循环，同时也跳过了赋值，因此不会引发编译错误。
         let guess_number: u32 = match str_number.trim().parse() {
             Ok(num) => num,
             _ => {
+                println!("无效输入，请重新输入!");
                 str_number.clear();
                 continue;
             }
         };
 
         match guess_number.cmp(&target) {
-            Ordering::Less => { println!("小了"); }
+            Ordering::Less => {
+                println!("小了");
+            }
             Ordering::Equal => {
                 println!("恭喜，猜对了！");
                 println!("按任意键退出游戏！");
                 io::stdin().read_line(&mut str_number).unwrap();
                 break;
             }
-            Ordering::Greater => { println!("大了") }
+            Ordering::Greater => {
+                println!("大了")
+            }
         }
 
         str_number.clear();
