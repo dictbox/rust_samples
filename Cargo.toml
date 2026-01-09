@@ -1,0 +1,12 @@
+[package]
+name = "rust_samples"
+version = "0.1.0"
+edition = "2024"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clipboard-win = "5.4.0"
+rsa = "0.9.10"
+rand = "0.8.5"
+gpui = { version = "0.2.2" }
