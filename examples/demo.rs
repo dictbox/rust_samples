@@ -26,6 +26,7 @@ impl<T> TypeName for T {
 
 fn main() {
     let boxed: Box<dyn TestFun> = Box::new(TestFunImpl);
-    println!("{:?}", boxed.type_id());
+    println!("{:?},{:?}", boxed.type_id(), (&*boxed).type_id());
     boxed.type_name();
+    boxed.foo();
 }
